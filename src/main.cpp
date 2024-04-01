@@ -38,7 +38,7 @@ void loop() {
         delay(1000);
 
         // Apaga el led por 1 segundo e imprime el estado en la consola serial
-        Serial.println(LedOnMessage +  counter);
+        Serial.println(LedOffMessage +  counter);
         digitalWrite(pinLed, LOW);
         delay(1000);
     }
