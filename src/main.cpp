@@ -28,7 +28,7 @@ void loop() {
     numBlinks = Serial.parseInt();
     Serial.print("El usuario indica que el led va a encenderse y apagarse: ");
     Serial.print(numBlinks);
-    Serial.print("veces.");
+    Serial.println(" veces.");
 
     // Enciende y apaga el LED el numero de parpadeos
     for (int counter = 1; counter <= numBlinks; counter++){
