@@ -19,15 +19,19 @@ void setup() {
   for (int i = 0; i < numPins; i++) {
     pinMode(ledPins[i], OUTPUT); // Configurar los pines como salida
   }
+  Serial.begin(9600);
 }
 
 void ascendente(){
 static int contador = 0; // Variable para almacenar el valor del contador
   
   // Convertir el contador a binario y mostrarlo en los LEDs
-  for (int i = 0; i < numPins; i++) {
+  for (int i = numPins - 1; i >= 0; i--) {
     digitalWrite(ledPins[i], (contador >> i) & 1); // Configurar los pines de acuerdo al bit correspondiente del contador
+    Serial.print(digitalRead(ledPins[i]));
   }
+  Serial.print(" - ");
+  Serial.println(contador);
   
   delay(1000); // Esperar un segundo
   
@@ -42,10 +46,12 @@ void descendente(){
 static int contador = limite - 1; // Variable para almacenar el valor del contador
   
   // Convertir el contador a binario y mostrarlo en los LEDs
-  for (int i = 0; i < numPins; i++) {
-  // Configurar los pines de acuerdo al bit correspondiente del contador
-    digitalWrite(ledPins[i], (contador >> i) & 1); 
+  for (int i = numPins - 1; i >= 0; i--) {
+    digitalWrite(ledPins[i], (contador >> i) & 1); // Configurar los pines de acuerdo al bit correspondiente del contador
+    Serial.print(digitalRead(ledPins[i]));
   }
+  Serial.print(" - ");
+  Serial.println(contador);
   
   delay(1000); // Esperar un segundo
   
